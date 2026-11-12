@@ -48,12 +48,11 @@ export default function CascadeMap({ cascade, zones, onZoneClick, selectedZone, 
       className="leaflet-map"
       zoomControl={true}
     >
-      {/* Dark base tile layer — CartoDB Dark Matter (free, no API key needed) */}
+      {/* Dark base tile layer — Esri World Dark Gray (free, no API key needed) */}
       <TileLayer
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
-        url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
-        subdomains="abcd"
-        maxZoom={19}
+        attribution='Tiles &copy; <a href="https://www.esri.com/">Esri</a>'
+        url="https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}"
+        maxZoom={16}
       />
 
       {/* Zone edges */}
