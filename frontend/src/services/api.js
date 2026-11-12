@@ -1,6 +1,8 @@
 import axios from 'axios';
 
-const api = axios.create({ baseURL: '/api' });
+const api = axios.create({
+  baseURL: 'https://backend-production-5df77628.up.railway.app/api',
+});
 
 export const fetchZones = () => api.get('/zones/').then(r => r.data);
 export const fetchIncidents = () => api.get('/incidents/').then(r => r.data);
