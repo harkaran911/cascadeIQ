@@ -31,8 +31,9 @@ export default function IncidentPanel({ selectedZone }) {
   const [filter, setFilter] = useState('all');
 
   useEffect(() => {
-    fetchIncidents().then(setIncidents).catch(console.error);
-    const t = setInterval(() => fetchIncidents().then(setIncidents).catch(console.error), 15000);
+    const safeSet = data => setIncidents(Array.isArray(data) ? data : []);
+    fetchIncidents().then(safeSet).catch(console.error);
+    const t = setInterval(() => fetchIncidents().then(safeSet).catch(console.error), 15000);
     return () => clearInterval(t);
   }, []);
 

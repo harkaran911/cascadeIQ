@@ -21,7 +21,26 @@ class IncidentCreate(BaseModel):
 @router.get("/")
 async def list_incidents(db: AsyncSession = Depends(get_db)):
     result = await db.execute(select(Incident).order_by(Incident.created_at.desc()))
-    return result.scalars().all()
+    rows = result.scalars().all()
+    return [
+        {
+            "id":                 i.id,
+            "zone_id":            i.zone_id,
+            "source":             i.source.value if hasattr(i.source, "value") else i.source,
+            "incident_type":      i.incident_type.value if hasattr(i.incident_type, "value") else i.incident_type,
+            "severity":           i.severity,
+            "trust_weight":       i.trust_weight,
+            "corroboration_count": i.corroboration_count,
+            "description":        i.description,
+            "reporter_name":      i.reporter_name,
+            "ai_incident_type":   i.ai_incident_type,
+            "ai_severity":        i.ai_severity,
+            "ai_confidence":      i.ai_confidence,
+            "ai_reasoning":       i.ai_reasoning,
+            "created_at":         i.created_at.isoformat() if i.created_at else None,
+        }
+        for i in rows
+    ]
 
 
 @router.post("/", status_code=201)

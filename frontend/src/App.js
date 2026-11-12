@@ -26,9 +26,9 @@ export default function App() {
         fetchDirectives(),
         fetchWeather(),
       ]);
-      setZones(z);
+      setZones(Array.isArray(z) ? z : []);
       setCascade(c);
-      setDirectives(d);
+      setDirectives(Array.isArray(d) ? d : []);
       setWeather(w);
       setLastUpdate(new Date());
 

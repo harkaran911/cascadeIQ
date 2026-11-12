@@ -17,13 +17,14 @@ export default function DirectivesPanel({ directives, onRefresh }) {
     }
   };
 
-  const pending = directives.filter(d => d.status === 'recommended' || d.status === 'approved');
+  const safeDirectives = Array.isArray(directives) ? directives : [];
+  const pending = safeDirectives.filter(d => d.status === 'recommended' || d.status === 'approved');
 
   return (
     <div>
       <div className="panel-section">
         <h3>Optimizer Directives</h3>
-        {directives.length === 0 && (
+        {safeDirectives.length === 0 && (
           <p style={{ color: '#8b949e', fontSize: 12 }}>
             No directives yet — click "Run Optimizer" to generate deployment recommendations.
           </p>
