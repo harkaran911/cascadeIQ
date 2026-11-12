@@ -1,0 +1,141 @@
+.app-shell {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  background: var(--bg-primary);
+}
+
+/* ── Top bar ──────────────────────────────────────────────────────── */
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0 16px;
+  height: 52px;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+.topbar-brand { display: flex; align-items: center; gap: 8px; }
+.brand-icon { font-size: 20px; }
+.brand-name { font-size: 17px; font-weight: 700; color: var(--text-primary); letter-spacing: -0.3px; }
+.brand-sub { font-size: 12px; color: var(--text-secondary); }
+
+.topbar-stats { display: flex; gap: 8px; flex: 1; overflow: hidden; }
+.stat-chip {
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+  border: 1px solid transparent;
+}
+.stat-chip.critical { background: #f8514920; color: #f85149; border-color: #f8514940; }
+.stat-chip.isolated { background: #d2992220; color: #d29922; border-color: #d2992240; }
+.stat-chip.weather  { background: #388bfd20; color: #388bfd; border-color: #388bfd40; }
+.stat-chip.muted    { color: var(--text-secondary); }
+
+.topbar-actions { display: flex; gap: 8px; flex-shrink: 0; }
+
+/* ── Main layout ──────────────────────────────────────────────────── */
+.main-layout {
+  display: grid;
+  grid-template-columns: 300px 1fr 280px;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* ── Sidebars ──────────────────────────────────────────────────────── */
+.sidebar-left, .sidebar-right {
+  background: var(--bg-secondary);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.sidebar-right { border-right: none; border-left: 1px solid var(--border); }
+
+.panel-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--border);
+}
+.tab-btn {
+  flex: 1;
+  border: none;
+  border-radius: 0;
+  border-right: 1px solid var(--border);
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  padding: 10px 4px;
+  font-size: 11px;
+  font-weight: 600;
+}
+.tab-btn:last-child { border-right: none; }
+.tab-btn:hover { background: var(--bg-panel); color: var(--text-primary); }
+.tab-btn.active { background: var(--bg-primary); color: var(--accent-blue); border-bottom: 2px solid var(--accent-blue); }
+
+.panel-body { flex: 1; overflow-y: auto; padding: 12px; }
+
+/* ── Map ──────────────────────────────────────────────────────────── */
+.map-container { position: relative; overflow: hidden; }
+
+.loading-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 16px;
+  color: var(--text-secondary);
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+.spinner {
+  width: 36px; height: 36px;
+  border: 3px solid var(--border);
+  border-top-color: var(--accent-blue);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+/* ── Shared panel styles ─────────────────────────────────────────── */
+.panel-section { margin-bottom: 16px; }
+.panel-section h3 { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-secondary); margin-bottom: 8px; }
+.card {
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+}
+.card:hover { border-color: var(--accent-blue); }
+.card h4 { font-size: 13px; margin-bottom: 4px; }
+.card p  { font-size: 12px; color: var(--text-secondary); }
+
+.risk-bar {
+  height: 4px; border-radius: 2px; margin-top: 6px;
+  background: var(--border);
+}
+.risk-fill { height: 100%; border-radius: 2px; }
+.severity-low      { background: var(--risk-low); }
+.severity-moderate { background: var(--risk-moderate); }
+.severity-high     { background: var(--risk-high); }
+.severity-critical { background: var(--risk-critical); }
+
+/* ── Form ────────────────────────────────────────────────────────── */
+.form-group { margin-bottom: 12px; }
+.form-group label { display: block; font-size: 11px; color: var(--text-secondary); margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
+.form-group select, .form-group input, .form-group textarea {
+  width: 100%;
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  padding: 8px 10px;
+  border-radius: 6px;
+  font-size: 13px;
+}
+.form-group select:focus, .form-group input:focus, .form-group textarea:focus {
+  outline: none;
+  border-color: var(--accent-blue);
+}

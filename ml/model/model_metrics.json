@@ -1,0 +1,12 @@
+{
+  "test_mae": 0.022005,
+  "test_rmse": 0.02769,
+  "test_r2": 0.954475,
+  "train_r2": 0.989206,
+  "cv_r2_mean": 0.955164,
+  "cv_r2_std": 0.00129,
+  "n_training": 8000,
+  "n_test": 2000,
+  "n_features": 9,
+  "n_estimators": 800
+}

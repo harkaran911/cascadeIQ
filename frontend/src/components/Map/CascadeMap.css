@@ -1,0 +1,44 @@
+.leaflet-map {
+  width: 100%;
+  height: 100%;
+  background: #0d1117;
+}
+
+.cascade-popup .leaflet-popup-content-wrapper {
+  background: #1c2128;
+  border: 1px solid #30363d;
+  border-radius: 8px;
+  color: #e6edf3;
+}
+.cascade-popup .leaflet-popup-tip { background: #1c2128; }
+
+.popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  gap: 8px;
+}
+.popup-body { font-size: 12px; }
+.popup-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 2px 0;
+  border-bottom: 1px solid #30363d;
+  color: #8b949e;
+}
+.popup-row span:last-child { color: #e6edf3; font-weight: 600; }
+.popup-isolated {
+  margin-top: 6px;
+  color: #f85149;
+  font-weight: 600;
+  font-size: 11px;
+}
+
+/* ML prediction row */
+.popup-ml-row { border-top: 1px dashed #388bfd33; margin-top: 4px; }
+.ml-label { font-weight: 700; }
+.ml-label.ml-critical { color: #ff0000; }
+.ml-label.ml-high     { color: #f85149; }
+.ml-label.ml-moderate { color: #d29922; }
+.ml-label.ml-low      { color: #3fb950; }

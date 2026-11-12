@@ -1,0 +1,11 @@
+[
+  "rainfall_24h_mm",
+  "river_level_normalized",
+  "elevation_m",
+  "soil_moisture_pct",
+  "days_since_rain",
+  "upstream_severity",
+  "drainage_quality",
+  "population_density",
+  "historical_flood_freq"
+]
